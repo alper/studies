@@ -81,3 +81,28 @@ console.log("0.0001 with alt", sqrt_alt(0.0001));
 console.log("3 normal", sqrt(3));
 console.log("3 with alt", sqrt_alt(3));
 
+// Exercise 1.8
+
+function cube_root_iter(y, x) {
+    let y_accent = improve_cube(y, x);
+
+    if (Math.abs(y - y_accent) < 0.001) {
+        return y_accent;
+    } else {
+        return cube_root_iter(y_accent, x);
+    }
+}
+
+function improve_cube(y, x) {
+    return ((x / square(y)) + (2*y))
+    /
+    3;
+}
+
+function cube_root(x) {
+    return cube_root_iter(1, x);
+}
+
+console.log("Exercise 1.8");
+
+console.log("Cube root 27", cube_root(27));

@@ -55,6 +55,7 @@ console.log("1000", square(sqrt(1000)));
 
 // Exercise 1.7
 
+console.log("");
 console.log("Exercise 1.7");
 console.log("0.0001", sqrt(0.0001));
 console.log("15241578750190521", sqrt(15241578750190521));
@@ -103,6 +104,56 @@ function cube_root(x) {
     return cube_root_iter(1, x);
 }
 
+console.log("");
 console.log("Exercise 1.8");
 
 console.log("Cube root 27", cube_root(27));
+
+// Exercise 1.10
+
+function A(x, y) {
+    return y === 0
+    ? 0
+    : x === 0
+    ? 2 * y
+    : y === 1
+    ? 2
+    : A(x-1, A(x, y-1));
+}
+
+console.log("A1,10", A(1, 10));
+console.log("A2,4", A(2, 4));
+console.log("A3,3", A(3, 3));
+
+// Exercise 1.11
+
+function f_rec(n) {
+    if (n < 3) {
+        return n;
+    } else {
+        return f_rec(n-1) + 2 * f_rec(n-2) + 3 * f_rec(n-3)
+    }
+}
+
+
+function f_iter(n) {
+    if (n < 3) {
+        return n;
+    } else {
+        return f_iter_helper(0, 1, 2, n-2);
+    }
+}
+
+function f_iter_helper(a, b, c, count) {
+    return count === 0
+    ? c
+    : f_iter_helper(b, c, c + 2 * b + 3 * a, count-1);
+}
+
+
+console.log("");
+console.log("Exercise 1.11");
+console.log("f_rec 24", f_rec(24));
+
+console.log("f_rec 4", f_rec(8));
+console.log("f_iter 4", f_iter(8));

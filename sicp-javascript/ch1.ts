@@ -157,3 +157,29 @@ console.log("f_rec 24", f_rec(24));
 
 console.log("f_rec 4", f_rec(8));
 console.log("f_iter 4", f_iter(8));
+
+// Exercise 1.12
+
+console.log("");
+console.log("Exercise 1.12");
+
+function pascal_triangle(previous_row: number[], n: number) {
+    console.log(previous_row.join(' '));
+
+    if (n == 0) {
+        return;
+    } else {
+        let new_row: number[] = [];
+        new_row.push(1);
+
+        for (let i = 0; i < previous_row.length-1; i++) {
+            new_row.push(previous_row[i] + previous_row[i+1]);
+        }
+
+        new_row.push(1);
+
+        pascal_triangle(new_row, n-1);
+    }
+}
+
+pascal_triangle([1], 10);

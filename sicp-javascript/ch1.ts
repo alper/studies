@@ -183,3 +183,43 @@ function pascal_triangle(previous_row: number[], n: number) {
 }
 
 pascal_triangle([1], 10);
+
+// Exercise 1.13
+
+// Don't see the point of doing this
+
+// Exercise 1.14
+
+// Also noping out here
+
+
+// Exercise 1.15
+
+function cube(x) {
+    return x * x * x;
+}
+
+function p(x) {
+    console.log("Call with ", x);
+
+    return 3*x - 4*cube(x);
+}
+
+function sine(angle) {
+
+    return ! (Math.abs(angle) > 0.1)
+            ? angle :
+            p(sine(angle / 3));
+}
+
+console.log("");
+console.log("Exercise 1.15");
+
+console.log("sine(12.15)", sine(12.15));
+// This seems to be wrong with the text but whatever.
+
+
+// Exercise 1.19
+// Skipping all of this. I'm not here to revisit my analysis classes.
+
+// Exercise 1.29

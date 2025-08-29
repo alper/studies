@@ -1,0 +1,10 @@
+append(Xs,Ys,Zs) ?=> Xs = [], Ys = Zs.
+append(Xs,Ys,Zs) =>
+    Xs = [X|XsR],
+    Zs = [X|ZsR],
+    append(XsR,Ys,ZsR).
+min_max([H],Min,Max) => Min = H, Max = H.ll]
+min_max([H|T],Min,Max) =>
+    min_max(T,MinT,MaxT),
+    Min = min(MinT,H),
+    Max = max(MaxT,H).

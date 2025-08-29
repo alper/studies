@@ -1,0 +1,54 @@
+% fib(0) = 1.
+% fib(1) = 1.
+% fib(N) = F, N > 1 => F = fib(N-1)+fib(N-2).
+
+% fib(N) = cond((N=0;N=1), 1, fib(N-1)+fib(N-2)).
+
+table
+fib(0) = 1.
+fib(1) = 1.
+fib(N) = fib(N-1)+fib(N-2).
+
+member(X,[Y|_]) ?=> X=Y.
+member(X,[_|L]) => member(X,L).
+
+qsort([]) = L => L = [].
+qsort([H|T]) = L => L = qsort([E: E in T, E =< H]) ++ [H] ++ qsort([E: E in T, E > H]).
+
+p(A) => foreach (I in 1 .. A.length)
+            E = A[I],
+            writeln(E)
+        end.
+
+write_map(Map) =>
+    foreach (Key=Value in Map)
+        writef("%w=%w\n", Key, Value)
+    end.
+
+sum_list(L) = Sum =>
+    S = 0,
+    foreach (X in L)
+        S := S + X
+    end,
+    Sum = S.
+
+read_list = List =>
+    L = [],
+    E = read_int(),
+    while (E != 0)
+        L := [E|L],
+        E := read_int()
+    end,
+    List = L.
+
+table(+, +, min)
+edit([], [], D) => D = 0.
+edit([X|Xs], [X|Ys], D) => edit(Xs, Ys, D).
+edit(Xs, Ys, D) ?=>
+    edit(Xs, Ys, D1),
+    D = D1+1.
+edit([X|Xs], Ys, D) =>
+    edit(Xs, Ys, D1),
+    D = D1+1.
+
+main => edit([1,2,3,4], X, 3).

@@ -1,0 +1,2 @@
+member(X,[Y|_]) ?=> X=Y.
+member(X,[_|L]) => member(X,L).
